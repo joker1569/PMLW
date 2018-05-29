@@ -24,8 +24,7 @@ namespace FilterContent.ExtractClass
         public List<HistoryItem> getHistoryBrowser()
         {
             List<HistoryItem> allHistoryItems = new List<HistoryItem>();
-            string chromeHistoryFile = @"C:\Users\" + UserName + @"\AppData\Local\Google\
-                                        Chrome\User Data\Default\History";
+            string chromeHistoryFile = @"C:\Users\" + UserName + @"\AppData\Local\Google\Chrome\User Data\Default\History";
             if (File.Exists(chromeHistoryFile))
             {
                 using (SQLiteConnection connection 
