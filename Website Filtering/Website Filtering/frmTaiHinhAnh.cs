@@ -122,21 +122,38 @@ namespace Website_Filtering
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            if(txtURL.Text == "")
+            if (txtURL.Text == "")
             {
                 XtraMessageBox.Show("Vui lòng điền dữ liệu URL!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                LoadingInForm loading = new LoadingInForm(splashScreenManager1);
-                loading.ShowWaitForm();
-                listboxImage.Items.Clear();
-                foreach(string image in ScanImage(txtURL.Text))
+                if (!CheckValidURL(txtURL.Text))
                 {
-                    listboxImage.Items.Add(image);
+                    XtraMessageBox.Show("URL không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                loading.CloseWaitForm();
+                else
+                {
+                    LoadingInForm loading = new LoadingInForm(splashScreenManager1);
+                    loading.ShowWaitForm();
+                    listboxImage.Items.Clear();
+                    foreach (string image in ScanImage(txtURL.Text))
+                    {
+                        listboxImage.Items.Add(image);
+                    }
+                    loading.CloseWaitForm();
+                }
             }
+        }
+
+        private bool CheckValidURL(string url)
+        {
+            Uri uri = null;
+            if (!(Uri.TryCreate(url, UriKind.Absolute, out uri)
+                     && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps)) || null == uri)
+                return false;
+            else
+                return true;
         }
 
         private byte[] DownloadData(string Url)

@@ -29,18 +29,15 @@ namespace Website_Filtering
             txtDiaChi.Text = URL;
         }
 
-        private void XayDungBieuDo(string url)
+        private void XayDungBieuDo(string content)
         {
-            HttpsToHttp cv = new HttpsToHttp(url);
-            url = cv.Convert();
-            GetContentFromURL get = new GetContentFromURL(new HistoryItem(url, "", DateTime.Now));
-            CheckListString ck = new CheckListString(get.ExtractContentFromUrl());
+            CheckListString ck = new CheckListString(content);
             List<KeywordResult> list = ck.CheckingContent();
 
             Series series = new Series("URL", ViewType.Pie);
-            foreach(KeywordResult kr in list)
+            foreach (KeywordResult kr in list)
             {
-                if(kr.matchCount != 0)
+                if (kr.matchCount != 0)
                     series.Points.Add(new SeriesPoint(kr.Name, kr.matchCount));
             }
             series.LegendTextPattern = "{A}";
@@ -52,7 +49,7 @@ namespace Website_Filtering
             Series series2 = new Series("Số lượng từ", ViewType.Bar);
             foreach (KeywordResult kr in list)
             {
-                if(kr.matchCount != 0)
+                if (kr.matchCount != 0)
                     series2.Points.Add(new SeriesPoint(kr.Name, kr.matchCount));
             }
             chartBarSoLuong.Series.Add(series2);
@@ -88,12 +85,42 @@ namespace Website_Filtering
             }
             else
             {
-                LoadingInForm loading = new LoadingInForm(splashScreenManager1);
-                loading.ShowWaitForm();
-                RemovePreviousSeries();
-                XayDungBieuDo(txtDiaChi.Text);
-                loading.CloseWaitForm();
+                if (!CheckValidURL(txtDiaChi.Text))
+                {
+                    XtraMessageBox.Show("URL không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    LoadingInForm loading = new LoadingInForm(splashScreenManager1);
+                    loading.ShowWaitForm();
+                    RemovePreviousSeries();
+                    String url = txtDiaChi.Text;
+                    HttpsToHttp cv = new HttpsToHttp(url);
+                    url = cv.Convert();
+                    GetContentFromURL get = new GetContentFromURL(new HistoryItem(url, "", DateTime.Now));
+                    String content = get.ExtractContentFromUrl();
+                    if (content != "")
+                    {
+                        XayDungBieuDo(content);
+                        loading.CloseWaitForm();
+                    }
+                    else
+                    {
+                        loading.CloseWaitForm();
+                        XtraMessageBox.Show("Không thể tải nội dung từ URL", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
+        }
+
+        private bool CheckValidURL(string url)
+        {
+            Uri uri = null;
+            if (!(Uri.TryCreate(url, UriKind.Absolute, out uri)
+                     && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps)) || null == uri)
+                return false;
+            else
+                return true;
         }
     }
 }
