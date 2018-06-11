@@ -1266,14 +1266,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Website Filtering.exe" size="745472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Website Filtering.exe" size="757760">
       <assemblyIdentity name="Website Filtering" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SMZZKwfPvMSlL8EnY02EDBweaLJVUpptXQkn7UuSO1g=</dsig:DigestValue>
+        <dsig:DigestValue>vz80a0MNDG06yIS6ujIAdlYdznWQKPiXyuff0go+Gkk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

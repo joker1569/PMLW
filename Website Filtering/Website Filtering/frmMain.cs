@@ -85,5 +85,15 @@ namespace Website_Filtering
             frmSendEmail frm = new frmSendEmail();
             frm.Show();
         }
+
+        private void btnQuetTuFile_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadingInForm loading = new LoadingInForm(splashScreenManager1);
+            loading.ShowWaitForm();
+            frmQuetFileLog frm = new frmQuetFileLog();
+            frm.MdiParent = this;
+            frm.Show();
+            loading.CloseWaitForm();
+        }
     }
 }

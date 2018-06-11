@@ -26,5 +26,12 @@ namespace Website_Filtering
             dateEnter.EditValue = Convert.ToDateTime(DateTime);
             txtContent.Text = Content;
         }
+
+        public frmChiTiet(String URL, String Content)
+        {
+            InitializeComponent();
+            txtURL.Text = URL;
+            txtContent.Text = Content;
+        }
     }
 }

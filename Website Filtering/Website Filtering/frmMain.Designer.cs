@@ -40,6 +40,7 @@
             this.btnExit = new DevExpress.XtraBars.BarButtonItem();
             this.btnThongtin2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnContact = new DevExpress.XtraBars.BarButtonItem();
+            this.btnQuetTuFile = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpageQLWeb = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpageNoiDungWeb = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -66,10 +67,11 @@
             this.btnThongtin,
             this.btnExit,
             this.btnThongtin2,
-            this.btnContact});
+            this.btnContact,
+            this.btnQuetTuFile});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 10;
+            this.ribbonControl1.MaxItemId = 11;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -154,6 +156,15 @@
             this.btnContact.Name = "btnContact";
             this.btnContact.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnContact_ItemClick);
             // 
+            // btnQuetTuFile
+            // 
+            this.btnQuetTuFile.Caption = "Quét dữ liệu từ File";
+            this.btnQuetTuFile.Glyph = ((System.Drawing.Image)(resources.GetObject("btnQuetTuFile.Glyph")));
+            this.btnQuetTuFile.Id = 10;
+            this.btnQuetTuFile.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuetTuFile.LargeGlyph")));
+            this.btnQuetTuFile.Name = "btnQuetTuFile";
+            this.btnQuetTuFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuetTuFile_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,8 +178,9 @@
             // rbpageQLWeb
             // 
             this.rbpageQLWeb.ItemLinks.Add(this.btnLichSuDuyetWeb);
+            this.rbpageQLWeb.ItemLinks.Add(this.btnQuetTuFile);
             this.rbpageQLWeb.Name = "rbpageQLWeb";
-            this.rbpageQLWeb.Text = "Quản lý lịch sử duyệt web";
+            this.rbpageQLWeb.Text = "Quản lý duyệt web";
             // 
             // rbpageNoiDungWeb
             // 
@@ -252,6 +264,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btnContact;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbPageHotronguoidung;
+        private DevExpress.XtraBars.BarButtonItem btnQuetTuFile;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

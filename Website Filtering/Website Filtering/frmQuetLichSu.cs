@@ -86,7 +86,6 @@ namespace Website_Filtering
             int x, y;
             x = panelOption.Height;
             y = panelOption.Width;
-
         }
 
         private void SetValueToListView(List<HistoryItem> list)
@@ -209,6 +208,7 @@ namespace Website_Filtering
                 String URL = item.SubItems[1].Text;
                 frmDanhGiaURL frm = new frmDanhGiaURL(URL);
                 frm.Show();
+                frm.PerformAction();
             }
             else
                 MessageBox.Show("Lỗi khi xử lý yêu cầu", "Thong bao", MessageBoxButtons.OK);

@@ -29,6 +29,11 @@ namespace Website_Filtering
             txtDiaChi.Text = URL;
         }
 
+        public void PerformAction()
+        {
+            btnQuet.PerformClick();
+        }
+
         private void XayDungBieuDo(string content)
         {
             CheckListString ck = new CheckListString(content);

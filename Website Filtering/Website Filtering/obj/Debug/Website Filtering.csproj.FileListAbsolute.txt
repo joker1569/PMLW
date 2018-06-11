@@ -76,4 +76,4 @@ C:\Users\hkhon\Documents\GitHub\PMLW\Website Filtering\Website Filtering\obj\Deb
 C:\Users\hkhon\Documents\GitHub\PMLW\Website Filtering\Website Filtering\obj\Debug\Website Filtering.exe.licenses
 C:\Users\hkhon\Documents\GitHub\PMLW\Website Filtering\Website Filtering\obj\Debug\Website Filtering.exe.manifest
 C:\Users\hkhon\Documents\GitHub\PMLW\Website Filtering\Website Filtering\obj\Debug\Website Filtering.application
-C:\Users\hkhon\Documents\GitHub\PMLW\Website Filtering\Website Filtering\obj\Debug\Website_Filtering.frmGetIPList.resources
+C:\Users\hkhon\Documents\GitHub\PMLW\Website Filtering\Website Filtering\obj\Debug\Website_Filtering.frmQuetFileLog.resources
